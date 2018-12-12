@@ -312,7 +312,7 @@ object Tests extends TestApp {
 
       try {
         val person = Person("Bob", 42)
-        implicitly[Patcher[Entity]].patch(person, Seq(null, 21, 'killer))
+        implicitly[Patcher[Entity]].patch(person, Seq(null, 21, sym"killer"))
       } catch {
         case NonFatal(e) => e.getMessage
       }
@@ -326,7 +326,7 @@ object Tests extends TestApp {
 
       try {
         val person = Person("Bob", 42)
-        implicitly[Patcher[Entity]].patch(person, Seq(null, 'killer))
+        implicitly[Patcher[Entity]].patch(person, Seq(null, sym"killer"))
         "it worked"
       } catch {
         case NonFatal(e) => e.getMessage
